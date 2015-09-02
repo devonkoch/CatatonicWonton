@@ -11,6 +11,9 @@ Models.Project  = sequelize.import('./models/Project');
 Models.Question = sequelize.import('./models/Question');
 Models.Page     = sequelize.import('./models/Page');
 
+// visual representation: http://dbdesigner.net/designer/schema/9114
+// http://imgur.com/WSGf3ST
+
 // JOIN TABLES
 Models.StudentClass   = sequelize.import('./models/StudentClass');
 Models.StudentProject = sequelize.import('./models/StudentProject');
