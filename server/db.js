@@ -4,12 +4,13 @@ var sequelize = new Sequelize('schoolio', 'root', '');
 
 // MODELS
 var Models = {};
-Models.Class    = sequelize.import('./models/Class');
-Models.Teacher  = sequelize.import('./models/Teacher');
-Models.Student  = sequelize.import('./models/Student');
-Models.Project  = sequelize.import('./models/Project');
-Models.Question = sequelize.import('./models/Question');
-Models.Page     = sequelize.import('./models/Page');
+Models.Class       = sequelize.import('./models/Class');
+Models.Teacher     = sequelize.import('./models/Teacher');
+Models.Student     = sequelize.import('./models/Student');
+Models.Project     = sequelize.import('./models/Project');
+Models.Question    = sequelize.import('./models/Question');
+Models.Page        = sequelize.import('./models/Page');
+Models.HelpRequest = sequelize.import('./models/HelpRequest');
 
 // JOIN TABLES
 Models.StudentClass   = sequelize.import('./models/StudentClass');
@@ -34,6 +35,10 @@ Models.Project.hasMany(Models.Page);
 Models.Question.belongsTo(Models.Page);
 Models.Question.belongsTo(Models.Project);
 Models.Question.belongsTo(Models.Student);
+
+// HELP REQUEST RELATIONS
+Models.HelpRequest.belongsTo(Models.Student);
+Models.HelpRequest.belongsTo(Models.Teacher);
 
 
 sequelize.sync();
