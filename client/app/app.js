@@ -49,8 +49,8 @@ angular.module('app', ['ui.router', 'ngSanitize', 'froala', 'ui.bootstrap', 'ngA
     })
     .state("helpRequest", {
         url: "/helpRequest",
-        templateUrl: "app/studentHelpRequest/studentHelpRequestView.html",
-        controller: "studentHelpRequestCtrl"
+        templateUrl: "app/helpRequest/helpRequestView.html",
+        controller: "helpRequestCtrl"
     })
     .state("teacherClass", {
         url: "/teacherClass/:classId",
