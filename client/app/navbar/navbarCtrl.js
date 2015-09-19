@@ -1,8 +1,10 @@
 angular.module('app')
-  .controller('navbarCtrl', function($scope, $state, $http, $rootScope, User) {
+  .controller('navbarCtrl', function ($scope, $state, $http, $rootScope, User, HelpRequest) {
     
     $scope.navBarCollapsed = true;    
     $scope.loggedIn = false;
+    $scope.helpRequestTotal;
+
 
     $scope.logout = function() {
       $http.post('/auth/logout', {}).then(function(response) {
@@ -18,10 +20,14 @@ angular.module('app')
 
     // makes sure the nav bar only shows the appropriate links for the user
     var setNavbar = function() {
+
       var accountType = User.getUser().accountType;
       $scope.loggedIn = true;
       $scope.isTeacher = accountType === 'Teacher' ? true : false;
+
     };
+
+
 
     $rootScope.$on('teacherOrStudent', setNavbar);
 });
